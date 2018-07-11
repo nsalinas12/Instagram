@@ -73,6 +73,8 @@
     //[query whereKey:@"likesCount" greaterThan:@100];
     query.limit = 20;
     
+    [query includeKeys:@[@"author", @"createdAt"]];
+    
      [query orderByDescending:@"createdAt"];
     
     // fetch data asynchronously

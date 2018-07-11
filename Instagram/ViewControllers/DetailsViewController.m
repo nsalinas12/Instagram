@@ -35,7 +35,7 @@
 
 - (void) loadPost {
     
-    self.usernameLabel.text = self.post.userID;
+    self.usernameLabel.text = self.post.author.username;
     
     self.mainImageView.file = self.post.image;
     

@@ -26,8 +26,9 @@
 
 - (void)setPost:(Post *)post {
     _post = post;
-    
-    self.photoImageView.file = self.post[@"image"];
+
+    self.usernameLabel.text = self.post.author.username;
+    self.photoImageView.file = self.post.image;
     [self.photoImageView loadInBackground];
     
     self.captionLabel.text = self.post.caption;

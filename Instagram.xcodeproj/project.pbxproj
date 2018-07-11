@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		433A58A43DC5B8BF5CFD2570 /* libPods-Instagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F7FDE62A81E794A27FB60F /* libPods-Instagram.a */; };
 		C03CC47720F58D7A00C6C463 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CC47620F58D7A00C6C463 /* DetailsViewController.m */; };
+		C03D898620F6B40800342B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03D898520F6B40800342B39 /* Assets.xcassets */; };
 		C0B39B8320F4171500178DDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B8220F4171500178DDD /* AppDelegate.m */; };
 		C0B39B8620F4171500178DDD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B8520F4171500178DDD /* ViewController.m */; };
 		C0B39B8920F4171500178DDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B39B8720F4171500178DDD /* Main.storyboard */; };
-		C0B39B8B20F4171700178DDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B39B8A20F4171700178DDD /* Assets.xcassets */; };
 		C0B39B8E20F4171700178DDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B39B8C20F4171700178DDD /* LaunchScreen.storyboard */; };
 		C0B39B9120F4171700178DDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B9020F4171700178DDD /* main.m */; };
 		C0B39BB720F41AF300178DDD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39BB620F41AF300178DDD /* LoginViewController.m */; };
@@ -29,13 +29,13 @@
 		BE853B0E3FEC033E6C4C0E7C /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		C03CC47520F58D7A00C6C463 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		C03CC47620F58D7A00C6C463 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		C03D898520F6B40800342B39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0B39B7E20F4171500178DDD /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B39B8120F4171500178DDD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0B39B8220F4171500178DDD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C0B39B8420F4171500178DDD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C0B39B8520F4171500178DDD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C0B39B8820F4171500178DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C0B39B8A20F4171700178DDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0B39B8D20F4171700178DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0B39B8F20F4171700178DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B39B9020F4171700178DDD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,9 +100,9 @@
 				C0B39B8420F4171500178DDD /* ViewController.h */,
 				C0B39B8520F4171500178DDD /* ViewController.m */,
 				C0B39B8720F4171500178DDD /* Main.storyboard */,
+				C03D898520F6B40800342B39 /* Assets.xcassets */,
 				C0B39BED20F4320300178DDD /* Models */,
 				C0B39BB820F41AFB00178DDD /* ViewControllers */,
-				C0B39B8A20F4171700178DDD /* Assets.xcassets */,
 				C0B39B8C20F4171700178DDD /* LaunchScreen.storyboard */,
 				C0B39B8F20F4171700178DDD /* Info.plist */,
 				C0B39B9020F4171700178DDD /* main.m */,
@@ -206,7 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0B39B8E20F4171700178DDD /* LaunchScreen.storyboard in Resources */,
-				C0B39B8B20F4171700178DDD /* Assets.xcassets in Resources */,
+				C03D898620F6B40800342B39 /* Assets.xcassets in Resources */,
 				C0B39B8920F4171500178DDD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +239,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Instagram/Pods-Instagram-resources.sh",
+				"${PODS_ROOT}/DateTools/DateTools/DateTools/DateTools.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
 				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
 				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
@@ -246,6 +247,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DateTools.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
@@ -420,7 +422,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nsalinas.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsalinas.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -438,7 +440,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nsalinas.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsalinas.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
