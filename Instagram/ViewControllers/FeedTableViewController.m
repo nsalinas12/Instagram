@@ -139,8 +139,14 @@
      
      if( [segue.identifier isEqualToString:@"segueToDetailsViewController"]){
          
+         UITableViewCell *tappedCell = sender;
+         NSIndexPath *indexPath = [self.feedTableView indexPathForCell:tappedCell];
+         
+         Post *sendingPost = self.feedArray[indexPath.row];
+         
          DetailsViewController *detailsViewController = [segue destinationViewController];
-         detailsViewController.delegate = self;
+         detailsViewController.post = sendingPost;
+         
          
      }
      

@@ -11,12 +11,9 @@
 #import "FeedCell.h"
 #import "Post.h"
 
-@protocol DetailsViewControllerDelegate;
 
 @interface DetailsViewController : UIViewController
 
-
-@property (weak, nonatomic) id<DetailsViewControllerDelegate> delegate;
 @property (weak, nonatomic) Post *post;
 
 - (void) loadPost;
