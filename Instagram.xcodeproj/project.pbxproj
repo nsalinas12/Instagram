@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		433A58A43DC5B8BF5CFD2570 /* libPods-Instagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F7FDE62A81E794A27FB60F /* libPods-Instagram.a */; };
+		C021DD3C20F7D33900C35908 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C021DD3B20F7D33900C35908 /* ProfileViewController.m */; };
+		C021DD3F20F7DA8A00C35908 /* PostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C021DD3E20F7DA8A00C35908 /* PostCollectionViewCell.m */; };
 		C03CC47720F58D7A00C6C463 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CC47620F58D7A00C6C463 /* DetailsViewController.m */; };
 		C03D898620F6B40800342B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03D898520F6B40800342B39 /* Assets.xcassets */; };
 		C0B39B8320F4171500178DDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B8220F4171500178DDD /* AppDelegate.m */; };
@@ -26,6 +28,10 @@
 		48C9AAFE314C059E1000AFE0 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		76F7FDE62A81E794A27FB60F /* libPods-Instagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Instagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE853B0E3FEC033E6C4C0E7C /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
+		C021DD3A20F7D33900C35908 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		C021DD3B20F7D33900C35908 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		C021DD3D20F7DA8A00C35908 /* PostCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionViewCell.h; sourceTree = "<group>"; };
+		C021DD3E20F7DA8A00C35908 /* PostCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionViewCell.m; sourceTree = "<group>"; };
 		C03CC47520F58D7A00C6C463 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		C03CC47620F58D7A00C6C463 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		C03D898520F6B40800342B39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 		C0B39BB820F41AFB00178DDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C021DD3A20F7D33900C35908 /* ProfileViewController.h */,
+				C021DD3B20F7D33900C35908 /* ProfileViewController.m */,
 				C03CC47520F58D7A00C6C463 /* DetailsViewController.h */,
 				C03CC47620F58D7A00C6C463 /* DetailsViewController.m */,
 				C0B39BE720F42B1200178DDD /* ComposeViewController.h */,
@@ -129,6 +137,8 @@
 				C0B39BE520F42A0400178DDD /* FeedCell.m */,
 				C0B39BF120F5286F00178DDD /* Post.h */,
 				C0B39BF220F5286F00178DDD /* Post.m */,
+				C021DD3D20F7DA8A00C35908 /* PostCollectionViewCell.h */,
+				C021DD3E20F7DA8A00C35908 /* PostCollectionViewCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,9 +271,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0B39BB720F41AF300178DDD /* LoginViewController.m in Sources */,
+				C021DD3F20F7DA8A00C35908 /* PostCollectionViewCell.m in Sources */,
 				C03CC47720F58D7A00C6C463 /* DetailsViewController.m in Sources */,
 				C0B39BDD20F4212200178DDD /* SignUpViewController.m in Sources */,
 				C0B39BE620F42A0400178DDD /* FeedCell.m in Sources */,
+				C021DD3C20F7D33900C35908 /* ProfileViewController.m in Sources */,
 				C0B39BF320F5286F00178DDD /* Post.m in Sources */,
 				C0B39BE320F429BA00178DDD /* FeedTableViewController.m in Sources */,
 				C0B39B9120F4171700178DDD /* main.m in Sources */,

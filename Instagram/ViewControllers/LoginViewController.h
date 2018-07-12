@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
-@protocol LoginViewControllerDelegate;
 
 @interface LoginViewController : UIViewController
 
-@property (nonatomic, weak) id<LoginViewControllerDelegate> delegate;
 
 @end

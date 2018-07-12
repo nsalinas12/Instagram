@@ -11,7 +11,7 @@
 
 @protocol ComposeViewControllerDelegate
 
-- (void) didPost: (Post *)post;
+- (void) didPost: (Post *) post;
 
 @end
 

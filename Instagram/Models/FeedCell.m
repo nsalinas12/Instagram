@@ -36,6 +36,35 @@
     
     self.captionLabel.text = self.post.caption;
     
+}
+
+
+- (IBAction)onTapLike:(id)sender {
+    
+    if (self.post.likeCount == 0 ){
+        
+        self.post.likeCount = 1;
+        self.likeButton.selected = YES;
+        self.likeCountButton.text = @"1";
+        
+    } else {
+        
+        self.post.likeCount = 0;
+        self.likeButton.selected = NO;
+        self.likeCountButton.text = @"0";
+        
+    }
+    
+
+    
+    
+    
+}
+
+
+- (IBAction)onTapComment:(id)sender {
+    
+    
     
 }
 

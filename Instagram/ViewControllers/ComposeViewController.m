@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     
     
 }
@@ -43,14 +43,14 @@
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-
+    
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
 
 
 - (IBAction)onTapCameraButton:(id)sender {
-
+    
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
@@ -81,21 +81,23 @@
     
     NSLog( @"Sharing your post!" );
     
-    [Post postUserImage:self.tempImage.image withCaption:self.captionText.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    //[Post postUserImage:self.tempImage.image withCaption:self.captionText.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    
+    [Post postUserImage:self.tempImage.image withCaption:self.captionText.text withCompletion:^(BOOL succeeded, NSError * _Nullable error, Post * _Nullable post) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
-            NSLog(@"User logged in successfully");
+            [self.delegate didPost:post];
             
-            // display view controller that needs to shown after successful login
+            NSLog( @"Shared your post!" );
         }
     }];
     
-    NSLog( @"Shared your post!" );
-        
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
-
+    
 }
 
 
@@ -111,13 +113,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

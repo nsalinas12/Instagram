@@ -69,16 +69,16 @@
         NSLog(@"Working!");
         
         LoginViewController *loginViewController = [segue destinationViewController];
-        loginViewController.delegate = self;
+        //loginViewController.delegate = self;
         
         
     
-    } else if ( [segue.identifier isEqualToString:@"segueToFeedTableViewController"] ){
+    } else if ( [segue.identifier isEqualToString:@"segueToTabBarController"] ){
         NSLog( @"Test" );
         
         UINavigationController *navigationController = [segue destinationViewController];
         FeedTableViewController *feedTableViewController = (FeedTableViewController*) navigationController.topViewController;
-        feedTableViewController.delegate = self;
+        //feedTableViewController.delegate = self;
     }
 }
 

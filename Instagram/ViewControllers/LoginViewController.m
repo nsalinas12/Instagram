@@ -69,16 +69,16 @@
         NSLog(@"Segueing to Sign Up!");
         
         SignUpViewController *signUpViewController = [segue destinationViewController];
-        signUpViewController.delegate = self;
+        //signUpViewController.delegate = self;
         
         
-    } else if ( [segue.identifier isEqualToString:@"segueToFeedTableViewController"] ){
+    } else if ( [segue.identifier isEqualToString:@"segueToTabBarController"] ){
         
         NSLog(@"Segueing to Feed!");
         
         UINavigationController *navigationController = [segue destinationViewController];
         FeedTableViewController *feedTableViewController = (FeedTableViewController*) navigationController.topViewController;
-        feedTableViewController.delegate = self;
+        //feedTableViewController.delegate = self;
         
         
     }

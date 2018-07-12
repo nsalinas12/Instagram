@@ -36,6 +36,8 @@
     [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
     
     [self.feedTableView insertSubview:self.refreshControl atIndex:0];
+    
+    [self.tableView reloadData];
 
     
     
@@ -54,7 +56,7 @@
 
 - (void) didPost:(Post *)post{
     
-    NSLog(@"Reloading table view");
+    NSLog(@"Reloading table view from delegate");
     
     [self.feedArray insertObject:post atIndex:0];
     [self.feedTableView reloadData];

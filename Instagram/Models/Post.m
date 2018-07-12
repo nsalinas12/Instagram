@@ -26,7 +26,7 @@
     return @"Post";
 }
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (void(^_Nullable)(BOOL succeeded, NSError * _Nullable error, Post * _Nullable post))completion {
     
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
@@ -35,8 +35,12 @@
     newPost.likeCount = @(0);
     newPost.commentCount = @(0);
     
-    [newPost saveInBackgroundWithBlock: completion];
+    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        completion(succeeded, error, newPost);
+    }];
 }
+
+//(void(^)(NSString *string))
 
 + (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
     
