@@ -11,7 +11,6 @@
 		C03CC47720F58D7A00C6C463 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CC47620F58D7A00C6C463 /* DetailsViewController.m */; };
 		C03D898620F6B40800342B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03D898520F6B40800342B39 /* Assets.xcassets */; };
 		C0B39B8320F4171500178DDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B8220F4171500178DDD /* AppDelegate.m */; };
-		C0B39B8620F4171500178DDD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B8520F4171500178DDD /* ViewController.m */; };
 		C0B39B8920F4171500178DDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B39B8720F4171500178DDD /* Main.storyboard */; };
 		C0B39B8E20F4171700178DDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B39B8C20F4171700178DDD /* LaunchScreen.storyboard */; };
 		C0B39B9120F4171700178DDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B9020F4171700178DDD /* main.m */; };
@@ -33,8 +32,6 @@
 		C0B39B7E20F4171500178DDD /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B39B8120F4171500178DDD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0B39B8220F4171500178DDD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C0B39B8420F4171500178DDD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C0B39B8520F4171500178DDD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C0B39B8820F4171500178DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0B39B8D20F4171700178DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0B39B8F20F4171700178DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,8 +94,6 @@
 			children = (
 				C0B39B8120F4171500178DDD /* AppDelegate.h */,
 				C0B39B8220F4171500178DDD /* AppDelegate.m */,
-				C0B39B8420F4171500178DDD /* ViewController.h */,
-				C0B39B8520F4171500178DDD /* ViewController.m */,
 				C0B39B8720F4171500178DDD /* Main.storyboard */,
 				C03D898520F6B40800342B39 /* Assets.xcassets */,
 				C0B39BED20F4320300178DDD /* Models */,
@@ -269,7 +264,6 @@
 				C03CC47720F58D7A00C6C463 /* DetailsViewController.m in Sources */,
 				C0B39BDD20F4212200178DDD /* SignUpViewController.m in Sources */,
 				C0B39BE620F42A0400178DDD /* FeedCell.m in Sources */,
-				C0B39B8620F4171500178DDD /* ViewController.m in Sources */,
 				C0B39BF320F5286F00178DDD /* Post.m in Sources */,
 				C0B39BE320F429BA00178DDD /* FeedTableViewController.m in Sources */,
 				C0B39B9120F4171700178DDD /* main.m in Sources */,

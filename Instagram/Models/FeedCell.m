@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 #import "Post.h"
 #import "ParseUI.h"
+#import "DateTools.h"
 
 @implementation FeedCell
 
@@ -26,7 +27,9 @@
 
 - (void)setPost:(Post *)post {
     _post = post;
-
+    
+    
+    self.dateLabel.text = [self.post.createdAt timeAgoSinceNow];
     self.usernameLabel.text = self.post.author.username;
     self.photoImageView.file = self.post.image;
     [self.photoImageView loadInBackground];

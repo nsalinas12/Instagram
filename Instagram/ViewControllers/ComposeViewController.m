@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *captionText;
 @property (strong, nonatomic) IBOutlet UIImageView *tempImage;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 
 @end
@@ -99,6 +100,8 @@
 
 
 - (IBAction)onTapCancel:(id)sender {
+    
+    NSLog( @"YES" );
     
     [self dismissViewControllerAnimated:true completion:nil];
     
