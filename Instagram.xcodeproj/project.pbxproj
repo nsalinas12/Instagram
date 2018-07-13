@@ -12,6 +12,8 @@
 		C021DD3F20F7DA8A00C35908 /* PostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C021DD3E20F7DA8A00C35908 /* PostCollectionViewCell.m */; };
 		C03CC47720F58D7A00C6C463 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CC47620F58D7A00C6C463 /* DetailsViewController.m */; };
 		C03D898620F6B40800342B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03D898520F6B40800342B39 /* Assets.xcassets */; };
+		C04AA0B620F824D6009F275F /* PFUser+ExtendedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C04AA0B520F824D6009F275F /* PFUser+ExtendedUser.m */; };
+		C0AC4B4520F81A670032E154 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AC4B4420F81A670032E154 /* EditProfileViewController.m */; };
 		C0B39B8320F4171500178DDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B8220F4171500178DDD /* AppDelegate.m */; };
 		C0B39B8920F4171500178DDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B39B8720F4171500178DDD /* Main.storyboard */; };
 		C0B39B8E20F4171700178DDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B39B8C20F4171700178DDD /* LaunchScreen.storyboard */; };
@@ -35,6 +37,10 @@
 		C03CC47520F58D7A00C6C463 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		C03CC47620F58D7A00C6C463 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		C03D898520F6B40800342B39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C04AA0B420F824D6009F275F /* PFUser+ExtendedUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PFUser+ExtendedUser.h"; sourceTree = "<group>"; };
+		C04AA0B520F824D6009F275F /* PFUser+ExtendedUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PFUser+ExtendedUser.m"; sourceTree = "<group>"; };
+		C0AC4B4320F81A670032E154 /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		C0AC4B4420F81A670032E154 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		C0B39B7E20F4171500178DDD /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B39B8120F4171500178DDD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0B39B8220F4171500178DDD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 				C0B39BB620F41AF300178DDD /* LoginViewController.m */,
 				C0B39BDB20F4212200178DDD /* SignUpViewController.h */,
 				C0B39BDC20F4212200178DDD /* SignUpViewController.m */,
+				C0AC4B4320F81A670032E154 /* EditProfileViewController.h */,
+				C0AC4B4420F81A670032E154 /* EditProfileViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -139,6 +147,8 @@
 				C0B39BF220F5286F00178DDD /* Post.m */,
 				C021DD3D20F7DA8A00C35908 /* PostCollectionViewCell.h */,
 				C021DD3E20F7DA8A00C35908 /* PostCollectionViewCell.m */,
+				C04AA0B420F824D6009F275F /* PFUser+ExtendedUser.h */,
+				C04AA0B520F824D6009F275F /* PFUser+ExtendedUser.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,10 +284,12 @@
 				C021DD3F20F7DA8A00C35908 /* PostCollectionViewCell.m in Sources */,
 				C03CC47720F58D7A00C6C463 /* DetailsViewController.m in Sources */,
 				C0B39BDD20F4212200178DDD /* SignUpViewController.m in Sources */,
+				C04AA0B620F824D6009F275F /* PFUser+ExtendedUser.m in Sources */,
 				C0B39BE620F42A0400178DDD /* FeedCell.m in Sources */,
 				C021DD3C20F7D33900C35908 /* ProfileViewController.m in Sources */,
 				C0B39BF320F5286F00178DDD /* Post.m in Sources */,
 				C0B39BE320F429BA00178DDD /* FeedTableViewController.m in Sources */,
+				C0AC4B4520F81A670032E154 /* EditProfileViewController.m in Sources */,
 				C0B39B9120F4171700178DDD /* main.m in Sources */,
 				C0B39B8320F4171500178DDD /* AppDelegate.m in Sources */,
 				C0B39BE920F42B1200178DDD /* ComposeViewController.m in Sources */,

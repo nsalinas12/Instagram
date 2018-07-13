@@ -76,9 +76,10 @@
         
         NSLog(@"Segueing to Feed!");
         
-        UINavigationController *navigationController = [segue destinationViewController];
-        FeedTableViewController *feedTableViewController = (FeedTableViewController*) navigationController.topViewController;
-        //feedTableViewController.delegate = self;
+        UITabBarController *tabBarViewController=[segue destinationViewController];
+        FeedTableViewController *feedTableViewController = (FeedTableViewController *)[tabBarViewController.viewControllers objectAtIndex:0];;
+        
+        feedTableViewController.delegate = self;
         
         
     }

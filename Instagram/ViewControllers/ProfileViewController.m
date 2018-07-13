@@ -8,17 +8,18 @@
 
 #import "ProfileViewController.h"
 #import "PostCollectionViewCell.h"
+#import "DetailsViewController.h"
 #import "Post.h"
 
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate >
 
-@property (weak, nonatomic) IBOutlet PFImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *postCount;
 @property (weak, nonatomic) IBOutlet UILabel *followerCount;
 @property (weak, nonatomic) IBOutlet UILabel *followingCount;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *profilePictureButton;
 
 
 
@@ -34,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //self.profilePictureButton setImage:self.user.profilePicture; forState:normal;
     
     self.postCollectionView.dataSource = self;
     self.postCollectionView.delegate = self;
@@ -71,21 +74,13 @@
 - (void) setProfile{
     
     if( self.user == nil ){
-        
         self.user = PFUser.currentUser;
-        
     }
-    
     if( PFUser.currentUser ){
-        
         self.usernameLabel.text = self.user.username;
-
-        
     }
-    
-    
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -136,28 +131,25 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
  #pragma mark - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+
+     if( [segue.identifier isEqualToString:@"segueFromCollectionDetail"]){
+         
+         UICollectionViewCell *tappedCell = sender;
+         NSIndexPath *indexPath = [self.postCollectionView indexPathForCell:tappedCell];
+         
+         Post *sendingPost = self.collectionPosts[indexPath.row];
+         
+         DetailsViewController *detailsViewController = [segue destinationViewController];
+         detailsViewController.post = sendingPost;
+         
+         
+     }
+     
+     
  }
- */
+
 
 @end
