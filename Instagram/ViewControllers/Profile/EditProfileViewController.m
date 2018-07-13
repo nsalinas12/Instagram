@@ -13,7 +13,8 @@
 
 
 @interface EditProfileViewController ()
-@property (weak, nonatomic) IBOutlet PFImageView *profilePictureImageView;
+
+@property (weak, nonatomic) IBOutlet PFImageView *pictureImageView;
 @property (weak, nonatomic) IBOutlet UITextField *editEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *editUsernameField;
 @property (weak, nonatomic) IBOutlet UITextView *editDescriptionField;
@@ -67,19 +68,31 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     
-
-    PFUser.currentUser.profilePicture = [self getPFFileFromImage:editedImage];
+    self.pictureImageView.file = nil;
     
-    self.profilePictureImageView.file = PFUser.currentUser.profilePicture;
-    [PFUser.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    CGSize size = CGSizeMake(80, 80);
+    
+    UIImage *resizedImage = [self resizeImage:editedImage withSize:size];
+    
+    PFFile *imageFile = [self getPFFileFromImage:resizedImage];
+    
+     [imageFile saveInBackground];
+     
+     PFUser *user = [PFUser currentUser];
+     [user setObject:imageFile forKey:@"profilePicture"];
+     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+     if (!error) {
+         self.pictureImageView.file = user.profilePicture;
+         
+         [self.pictureImageView loadInBackground];
+         
+         NSLog( @"set new image" );
         
-        NSLog( @"set new image" );
-        
-    }];
+     }
+     }];
+    
     
 
-    
-    
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -112,6 +125,23 @@
     
      [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 
 
 

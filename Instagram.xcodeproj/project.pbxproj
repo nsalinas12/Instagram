@@ -13,6 +13,8 @@
 		C03CC47720F58D7A00C6C463 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CC47620F58D7A00C6C463 /* DetailsViewController.m */; };
 		C03D898620F6B40800342B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03D898520F6B40800342B39 /* Assets.xcassets */; };
 		C04AA0B620F824D6009F275F /* PFUser+ExtendedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C04AA0B520F824D6009F275F /* PFUser+ExtendedUser.m */; };
+		C07D00E220F954EB00B4FB9A /* LiveCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07D00E120F954EB00B4FB9A /* LiveCameraViewController.m */; };
+		C07D00E420F9567A00B4FB9A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07D00E320F9567A00B4FB9A /* AVFoundation.framework */; };
 		C0AC4B4520F81A670032E154 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AC4B4420F81A670032E154 /* EditProfileViewController.m */; };
 		C0B39B8320F4171500178DDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B39B8220F4171500178DDD /* AppDelegate.m */; };
 		C0B39B8920F4171500178DDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B39B8720F4171500178DDD /* Main.storyboard */; };
@@ -39,6 +41,9 @@
 		C03D898520F6B40800342B39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04AA0B420F824D6009F275F /* PFUser+ExtendedUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PFUser+ExtendedUser.h"; sourceTree = "<group>"; };
 		C04AA0B520F824D6009F275F /* PFUser+ExtendedUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PFUser+ExtendedUser.m"; sourceTree = "<group>"; };
+		C07D00E020F954EB00B4FB9A /* LiveCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveCameraViewController.h; sourceTree = "<group>"; };
+		C07D00E120F954EB00B4FB9A /* LiveCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveCameraViewController.m; sourceTree = "<group>"; };
+		C07D00E320F9567A00B4FB9A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C0AC4B4320F81A670032E154 /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		C0AC4B4420F81A670032E154 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		C0B39B7E20F4171500178DDD /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C07D00E420F9567A00B4FB9A /* AVFoundation.framework in Frameworks */,
 				433A58A43DC5B8BF5CFD2570 /* libPods-Instagram.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +87,28 @@
 				BE853B0E3FEC033E6C4C0E7C /* Pods-Instagram.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C07D00E520F9611500B4FB9A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C021DD3A20F7D33900C35908 /* ProfileViewController.h */,
+				C021DD3B20F7D33900C35908 /* ProfileViewController.m */,
+				C0AC4B4320F81A670032E154 /* EditProfileViewController.h */,
+				C0AC4B4420F81A670032E154 /* EditProfileViewController.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		C07D00E620F9612000B4FB9A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C0B39BB520F41AF300178DDD /* LoginViewController.h */,
+				C0B39BB620F41AF300178DDD /* LoginViewController.m */,
+				C0B39BDB20F4212200178DDD /* SignUpViewController.h */,
+				C0B39BDC20F4212200178DDD /* SignUpViewController.m */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		C0B39B7520F4171500178DDD = {
@@ -120,20 +148,16 @@
 		C0B39BB820F41AFB00178DDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C021DD3A20F7D33900C35908 /* ProfileViewController.h */,
-				C021DD3B20F7D33900C35908 /* ProfileViewController.m */,
+				C07D00E020F954EB00B4FB9A /* LiveCameraViewController.h */,
+				C07D00E120F954EB00B4FB9A /* LiveCameraViewController.m */,
 				C03CC47520F58D7A00C6C463 /* DetailsViewController.h */,
 				C03CC47620F58D7A00C6C463 /* DetailsViewController.m */,
 				C0B39BE720F42B1200178DDD /* ComposeViewController.h */,
 				C0B39BE820F42B1200178DDD /* ComposeViewController.m */,
 				C0B39BE120F429BA00178DDD /* FeedTableViewController.h */,
 				C0B39BE220F429BA00178DDD /* FeedTableViewController.m */,
-				C0B39BB520F41AF300178DDD /* LoginViewController.h */,
-				C0B39BB620F41AF300178DDD /* LoginViewController.m */,
-				C0B39BDB20F4212200178DDD /* SignUpViewController.h */,
-				C0B39BDC20F4212200178DDD /* SignUpViewController.m */,
-				C0AC4B4320F81A670032E154 /* EditProfileViewController.h */,
-				C0AC4B4420F81A670032E154 /* EditProfileViewController.m */,
+				C07D00E620F9612000B4FB9A /* Login */,
+				C07D00E520F9611500B4FB9A /* Profile */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -156,6 +180,7 @@
 		F3C58389BCCD0F7A64D54478 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C07D00E320F9567A00B4FB9A /* AVFoundation.framework */,
 				76F7FDE62A81E794A27FB60F /* libPods-Instagram.a */,
 			);
 			name = Frameworks;
@@ -291,6 +316,7 @@
 				C0B39BE320F429BA00178DDD /* FeedTableViewController.m in Sources */,
 				C0AC4B4520F81A670032E154 /* EditProfileViewController.m in Sources */,
 				C0B39B9120F4171700178DDD /* main.m in Sources */,
+				C07D00E220F954EB00B4FB9A /* LiveCameraViewController.m in Sources */,
 				C0B39B8320F4171500178DDD /* AppDelegate.m in Sources */,
 				C0B39BE920F42B1200178DDD /* ComposeViewController.m in Sources */,
 			);

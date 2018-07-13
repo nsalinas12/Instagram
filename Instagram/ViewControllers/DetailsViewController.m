@@ -12,9 +12,19 @@
 #import "FeedTableViewController.h"
 
 @interface DetailsViewController ()
+
+
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property (weak, nonatomic) IBOutlet UILabel *commentCount;
+
+
+
 
 @end
 
@@ -36,13 +46,13 @@
 - (void) loadPost {
     
     self.usernameLabel.text = self.post.author.username;
-    
     self.mainImageView.file = self.post.image;
-    
     self.captionLabel.text = self.post.caption;
     
-   
-
+    self.likeCount.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
+    
+    self.commentCount.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
+    
 }
 
 /*

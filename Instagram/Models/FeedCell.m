@@ -36,6 +36,9 @@
     
     self.captionLabel.text = self.post.caption;
     
+    self.likeCountButton.text = [NSString stringWithFormat:@"%@", self.post.likeCount ];
+    self.commentLabel.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
+    
 }
 
 
@@ -43,7 +46,7 @@
     
     if (self.post.likeCount == 0 ){
         
-        self.post.likeCount = 1;
+        self.post.likeCount = @1;
         self.likeButton.selected = YES;
         self.likeCountButton.text = @"1";
         

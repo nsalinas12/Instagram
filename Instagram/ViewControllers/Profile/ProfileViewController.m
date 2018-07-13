@@ -10,6 +10,8 @@
 #import "PostCollectionViewCell.h"
 #import "DetailsViewController.h"
 #import "Post.h"
+#import "ParseUI.h"
+#import "Parse/Parse.h"
 
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate >
@@ -19,9 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *followingCount;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *profilePictureButton;
-
-
+@property (weak, nonatomic) IBOutlet PFImageView *profilePictureView;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *postCollectionView;
 @property (nonatomic, strong ) NSMutableArray *collectionPosts;
@@ -42,7 +42,6 @@
     self.postCollectionView.delegate = self;
     
     [self fetchPosts];
-    
     [self setProfile];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.postCollectionView.collectionViewLayout;
@@ -50,9 +49,15 @@
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
     
-    self.refreshControl = [[UIRefreshControl alloc] init];
     
+    
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor grayColor];
     [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
+    [self.postCollectionView addSubview:self.refreshControl];
+    self.postCollectionView.alwaysBounceVertical = YES;
+    
     
     [self.postCollectionView reloadData];
     
@@ -73,11 +78,19 @@
 
 - (void) setProfile{
     
-    if( self.user == nil ){
-        self.user = PFUser.currentUser;
+    PFUser *user = [PFUser currentUser];
+    
+    if( user == nil ){
+        user = PFUser.currentUser;
     }
+    
     if( PFUser.currentUser ){
+        
         self.usernameLabel.text = self.user.username;
+        
+        
+ 
+        
     }
 }
 
@@ -131,6 +144,19 @@
 
 
 
+- (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
+    if (!image) {
+        return nil;
+    }
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    return [PFFile fileWithName:@"image.png" data:imageData];
+    
+}
+
  #pragma mark - Navigation
  
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -147,7 +173,6 @@
          
          
      }
-     
      
  }
 
