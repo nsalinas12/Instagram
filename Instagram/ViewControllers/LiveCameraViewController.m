@@ -7,6 +7,7 @@
 //
 
 #import "LiveCameraViewController.h"
+@import AVKit;
 
 @interface LiveCameraViewController ()
 
@@ -71,8 +72,55 @@
 
 
 - (IBAction)didTakePhoto:(id)sender {
+    
+    //NSLog( @"CAPTURE PHOTO!");
+    
     AVCapturePhotoSettings *settings = [AVCapturePhotoSettings photoSettingsWithFormat:@{AVVideoCodecKey: AVVideoCodecTypeJPEG}];
+    
+    self.stillImageOutput = [AVCapturePhotoOutput new];
+    
+    [self.stillImageOutput capturePhotoWithSettings:settings delegate:self];
+    
     //Capture Photo
+    
+
+}
+- (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(nullable NSError *)error {
+    
+    NSData *imageData = photo.fileDataRepresentation;
+    UIImage *image = [UIImage imageWithData:imageData];
+    // Add the image to captureImageView here...
+    
+    self.captureView.image = nil;
+    
+    CGSize size = CGSizeMake(74, 100);
+
+    
+    UIImage *resizedImage = [self resizeImage:image withSize:size];
+    
+    self.captureView.image = resizedImage;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    
+    
+    
+}
+
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 /*

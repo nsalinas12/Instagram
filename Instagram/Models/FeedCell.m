@@ -10,7 +10,9 @@
 #import "Parse/Parse.h"
 #import "Post.h"
 #import "ParseUI.h"
+#import "PFUser+ExtendedUser.h"
 #import "DateTools.h"
+#import "ProfileViewController.h"
 
 @implementation FeedCell
 
@@ -26,13 +28,29 @@
 }
 
 - (void)setPost:(Post *)post {
+    
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+    self.profilePicture.clipsToBounds = YES;
+    
+    
+    self.gradient.layer.cornerRadius = self.gradient.frame.size.width / 2;
+    self.gradient.clipsToBounds = YES;
+    
+    
+    
+    
     _post = post;
+    
+    PFUser *newUser = [PFUser currentUser];
     
     
     self.dateLabel.text = [self.post.createdAt timeAgoSinceNow];
     self.usernameLabel.text = self.post.author.username;
     self.photoImageView.file = self.post.image;
     [self.photoImageView loadInBackground];
+    
+    self.profilePicture.file = newUser.profilePicture;
+    [self.profilePicture loadInBackground];
     
     self.captionLabel.text = self.post.caption;
     

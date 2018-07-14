@@ -195,17 +195,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="495.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdy-8u-azX">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="CTk-Hp-zvv">
+                                            <rect key="frame" x="5" y="7" width="42" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UWa-pO-Jk2" customClass="PFImageView">
                                             <rect key="frame" x="8" y="10" width="36" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="Icon-60"/>
+                                            <gestureRecognizers/>
                                             <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="18"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
-                                        </button>
+                                        </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="i2n-2T-TOf" customClass="PFImageView">
                                             <rect key="frame" x="0.0" y="54" width="375" height="375"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -274,19 +278,26 @@
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMn-Pn-vBM">
+                                            <rect key="frame" x="1" y="0.0" width="224" height="55"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="buttonCell" destination="WMn-Pn-vBM" id="7Os-KF-lXH"/>
                                     <outlet property="captionLabel" destination="3iD-Uf-rl9" id="MSk-js-qUV"/>
                                     <outlet property="commentButton" destination="reh-Yu-uwr" id="ncG-Id-0Br"/>
                                     <outlet property="commentLabel" destination="kGZ-3S-H3g" id="342-Xq-975"/>
                                     <outlet property="dateLabel" destination="FnK-hU-gNt" id="Zql-xh-pZO"/>
                                     <outlet property="forwardButton" destination="8AA-IM-fJo" id="wLE-8r-hfk"/>
+                                    <outlet property="gradient" destination="CTk-Hp-zvv" id="2wr-bF-S3N"/>
                                     <outlet property="likeButton" destination="Vxo-ZP-czs" id="BbI-SD-y4q"/>
                                     <outlet property="likeCountButton" destination="X7f-MW-tW2" id="5w0-CJ-BX1"/>
                                     <outlet property="photoImageView" destination="i2n-2T-TOf" id="1sW-kt-Tqd"/>
+                                    <outlet property="profilePicture" destination="UWa-pO-Jk2" id="bUW-ti-GCe"/>
                                     <outlet property="usernameLabel" destination="34a-z2-7i6" id="AXn-zn-qVb"/>
-                                    <segue destination="w9Q-aD-m0h" kind="show" identifier="segueToDetailsViewController" id="Wcr-zz-mKO"/>
+                                    <segue destination="w9Q-aD-m0h" kind="show" identifier="segueToDetailsViewController" id="ZbJ-ev-n2R"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -314,13 +325,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="composeButton" destination="MNO-bC-cBH" id="CQ9-fw-0lU"/>
                         <outlet property="feedTableView" destination="neq-3a-p7c" id="jog-9Q-A8K"/>
                         <outlet property="logoutButton" destination="l91-VC-xuI" id="6Kw-mn-cCm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9S-8Q-haJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2478" y="-904"/>
+            <point key="canvasLocation" x="2477.5999999999999" y="-904.49775112443785"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vRP-RC-arE">
@@ -350,7 +362,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Rmp-WO-CEz">
-                                <rect key="frame" x="2" y="66" width="90" height="90"/>
+                                <rect key="frame" x="2" y="70" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
@@ -359,6 +371,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yeg-EI-kbH" customClass="PFImageView">
+                                <rect key="frame" x="7" y="75" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-Xh-7Ze">
+                                <rect key="frame" x="2" y="70" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="f5Z-UB-Kdp" kind="presentation" id="wSV-S9-VWq"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="87" translatesAutoresizingMaskIntoConstraints="NO" id="Ts6-gS-z6L">
                                 <rect key="frame" x="104" y="74" width="87" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -448,23 +477,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yeg-EI-kbH" customClass="PFImageView">
-                                <rect key="frame" x="7" y="71" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="40"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-Xh-7Ze">
-                                <rect key="frame" x="2" y="66" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="f5Z-UB-Kdp" kind="presentation" id="wSV-S9-VWq"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9m5-Hn-HYd"/>
@@ -474,6 +486,7 @@
                         <outlet property="descriptionLabel" destination="NRQ-jv-Qvc" id="q5b-A8-vPx"/>
                         <outlet property="followerCount" destination="KXd-3x-3nv" id="PAS-go-Vjx"/>
                         <outlet property="followingCount" destination="7XJ-eW-IkJ" id="mFM-Gw-QJS"/>
+                        <outlet property="gradient" destination="Rmp-WO-CEz" id="Yk2-16-tDf"/>
                         <outlet property="postCollectionView" destination="tbZ-Nn-v5b" id="3s0-4Y-pAT"/>
                         <outlet property="postCount" destination="Ts6-gS-z6L" id="fpu-vJ-rxF"/>
                         <outlet property="profilePictureView" destination="yeg-EI-kbH" id="NvN-vv-68g"/>
@@ -500,8 +513,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Edit Description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UWp-IX-eDY">
-                                <rect key="frame" x="16" y="172" width="343" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UWp-IX-eDY">
+                                <rect key="frame" x="16" y="194" width="343" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1395547945" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -548,6 +561,13 @@
                                     <action selector="onTapCameraButton:" destination="4Ch-0h-grP" eventType="touchUpInside" id="q2W-LJ-CEO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38n-G8-4gl">
+                                <rect key="frame" x="90" y="165" width="194" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SJa-qA-qYW"/>
@@ -590,7 +610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMx-Ri-nnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4191" y="43"/>
+            <point key="canvasLocation" x="4189.6000000000004" y="42.728635682158924"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="gRf-rG-dHQ">
@@ -601,7 +621,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9D9-Wi-pZA" customClass="PFImageView">
-                                <rect key="frame" x="0.0" y="99" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="356"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5u-kI-CKp">
@@ -647,8 +667,29 @@
                                     </label>
                                 </subviews>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="anM-by-HWQ">
+                                <rect key="frame" x="6" y="70" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ez9-TH-t4z" customClass="PFImageView">
+                                <rect key="frame" x="9" y="73" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFo-a7-8gf">
+                                <rect key="frame" x="284" y="81" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogs-IT-V3Q">
-                                <rect key="frame" x="16" y="70" width="180" height="21"/>
+                                <rect key="frame" x="53" y="81" width="180" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.31415473090277779" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -662,9 +703,12 @@
                         <outlet property="captionLabel" destination="f5u-kI-CKp" id="QnY-86-lLm"/>
                         <outlet property="commentCount" destination="IJT-U0-bOQ" id="8Ks-S3-OgO"/>
                         <outlet property="commentLabel" destination="Sut-Gj-VEJ" id="vTr-aT-uOC"/>
+                        <outlet property="dateLabel" destination="KFo-a7-8gf" id="7JU-ub-3ZM"/>
+                        <outlet property="gradient" destination="anM-by-HWQ" id="9U6-6M-o4C"/>
                         <outlet property="likeButton" destination="7OW-QA-Uem" id="GXW-wJ-WZq"/>
                         <outlet property="likeCount" destination="Jhk-z7-zOK" id="fWl-Q0-arc"/>
                         <outlet property="mainImageView" destination="9D9-Wi-pZA" id="Zfh-PS-9cl"/>
+                        <outlet property="profilePicture" destination="Ez9-TH-t4z" id="Fbm-QJ-dNO"/>
                         <outlet property="usernameLabel" destination="ogs-IT-V3Q" id="QGd-ja-xgA"/>
                     </connections>
                 </viewController>
@@ -894,7 +938,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-60" width="60" height="60"/>
         <image name="bubble" width="32" height="32"/>
         <image name="feed_tab" width="25" height="25"/>
         <image name="gradient" width="1024" height="576"/>
@@ -908,8 +951,8 @@
         <image name="rocket" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="urh-2G-rE0"/>
-        <segue reference="Kat-E0-om3"/>
+        <segue reference="ZbJ-ev-n2R"/>
+        <segue reference="SOv-ot-27H"/>
         <segue reference="CjD-wD-aO4"/>
     </inferredMetricsTieBreakers>
 </document>

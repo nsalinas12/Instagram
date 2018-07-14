@@ -10,6 +10,9 @@
 #import "FeedCell.h"
 #import "Post.h"
 #import "FeedTableViewController.h"
+#import "PFUser+ExtendedUser.h"
+#import "DateTools.h"
+
 
 @interface DetailsViewController ()
 
@@ -22,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *commentCount;
+@property (weak, nonatomic) IBOutlet UIImageView *gradient;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 
 
@@ -32,6 +38,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width/2;
+    self.profilePicture.clipsToBounds = YES;
+    
+    
+    self.gradient.layer.cornerRadius = self.gradient.frame.size.width / 2;
+    self.gradient.clipsToBounds = YES;
+    
     
     
     [self loadPost];
@@ -49,9 +63,15 @@
     self.mainImageView.file = self.post.image;
     self.captionLabel.text = self.post.caption;
     
+    PFUser *newUser = [PFUser currentUser];
+    self.profilePicture.file = newUser.profilePicture;
+    [self.profilePicture loadInBackground];
+    
     self.likeCount.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
     
     self.commentCount.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
+    
+    self.dateLabel.text = [self.post.createdAt timeAgoSinceNow];
     
 }
 

@@ -15,9 +15,11 @@
 @interface EditProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet PFImageView *pictureImageView;
+
 @property (weak, nonatomic) IBOutlet UITextField *editEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *editUsernameField;
 @property (weak, nonatomic) IBOutlet UITextView *editDescriptionField;
+
 @property (weak, nonatomic) IBOutlet UIButton *photoLibraryButton;
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
@@ -31,13 +33,27 @@
     [super viewDidLoad];
 
     
+    
+    self.pictureImageView.layer.cornerRadius = self.pictureImageView.frame.size.width / 2;
+    self.pictureImageView.clipsToBounds = YES;
+    
+    self.editDescriptionField.text = [PFUser currentUser].biography;
+    self.pictureImageView.file = [PFUser currentUser].profilePicture;
+    self.editEmailTextField.text = [PFUser currentUser].email;
+    self.editUsernameField.text = [PFUser currentUser].username;
+    
+    [self.pictureImageView loadInBackground];
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
+    
     
 }
+
 
 - (IBAction)onTapPhotoLibraryButton:(id)sender {
     
@@ -66,33 +82,27 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
-    
     self.pictureImageView.file = nil;
-    
     CGSize size = CGSizeMake(80, 80);
-    
     UIImage *resizedImage = [self resizeImage:editedImage withSize:size];
-    
     PFFile *imageFile = [self getPFFileFromImage:resizedImage];
     
-     [imageFile saveInBackground];
-     
-     PFUser *user = [PFUser currentUser];
-     [user setObject:imageFile forKey:@"profilePicture"];
-     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-     if (!error) {
-         self.pictureImageView.file = user.profilePicture;
-         
-         [self.pictureImageView loadInBackground];
-         
-         NSLog( @"set new image" );
-        
-     }
-     }];
+    [imageFile saveInBackground];
+    
+    PFUser *user = [PFUser currentUser];
+    [user setObject:imageFile forKey:@"profilePicture"];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (!error) {
+            self.pictureImageView.file = user.profilePicture;
+            [self.pictureImageView loadInBackground];
+            
+            NSLog( @"set new image" );
+            
+        }
+    }];
     
     
-
+    
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -122,8 +132,22 @@
 
 - (IBAction)onTapDone:(id)sender {
     
+    NSString *incomingDescription = self.editDescriptionField.text;
     
-     [self dismissViewControllerAnimated:YES completion:nil];
+    PFUser *user = [PFUser currentUser];
+    [user setObject:incomingDescription forKey:@"biography"];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (!error) {
+            
+            NSLog( @"%@", incomingDescription );
+            
+        }
+    }];
+    
+    
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -146,13 +170,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

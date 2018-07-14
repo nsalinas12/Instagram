@@ -12,6 +12,7 @@
 #import "Post.h"
 #import "ParseUI.h"
 #import "Parse/Parse.h"
+#import "PFUser+ExtendedUser.h"
 
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate >
@@ -27,6 +28,7 @@
 @property (nonatomic, strong ) NSMutableArray *collectionPosts;
 
 @property (nonatomic, strong ) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIImageView *gradient;
 
 
 @end
@@ -36,13 +38,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.width / 2;
+    self.profilePictureView.clipsToBounds = YES;
+    self.gradient.layer.cornerRadius = self.gradient.frame.size.width / 2;
+    self.gradient.clipsToBounds = YES;
+    
     //self.profilePictureButton setImage:self.user.profilePicture; forState:normal;
     
     self.postCollectionView.dataSource = self;
     self.postCollectionView.delegate = self;
     
     [self fetchPosts];
-    [self setProfile];
+    [self getUser];
+    [PFUser getCurrentUserInBackground];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.postCollectionView.collectionViewLayout;
     
@@ -70,28 +78,37 @@
     [super viewWillAppear:animated];
     
     [self fetchPosts];
+    [self getUser];
+    
+    self.descriptionLabel.text = self.user.biography;
+    
+    [PFUser getCurrentUserInBackground];
     
     [self.postCollectionView reloadData];
 
     
 }
 
-- (void) setProfile{
+-(void)getUser {
+    PFQuery *query = [PFUser query];
+    //[query whereKey:@"profilePicture" equalTo:[PFUser currentUser]];
     
-    PFUser *user = [PFUser currentUser];
-    
-    if( user == nil ){
-        user = PFUser.currentUser;
-    }
-    
-    if( PFUser.currentUser ){
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+         self.user = [objects firstObject];
         
         self.usernameLabel.text = self.user.username;
         
+        self.profilePictureView.file = self.user.profilePicture;
         
- 
+        self.descriptionLabel.text = self.user.biography;
         
-    }
+         [self.profilePictureView loadInBackground];
+        
+        NSLog( @"loaded user");
+        
+    }];
+    
 }
 
 

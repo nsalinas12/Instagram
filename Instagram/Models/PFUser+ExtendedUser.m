@@ -23,6 +23,17 @@
 }
 
 
+- (void) setBiography:(NSString *)biography{
+    
+    self[@"biography"] = biography;
+}
+
+- (NSString *) biography {
+    
+    return self[@"biography"];
+    
+}
+
 
 
 @end
