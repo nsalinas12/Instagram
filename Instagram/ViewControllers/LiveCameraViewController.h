@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 @import AVKit;
 
-@protocol AVCapturePhotoCaptureDelegate
 
-@interface LiveCameraViewController : UIViewController <AVCapturePhotoCaptureDelegate>
+@interface LiveCameraViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (weak, nonatomic) IBOutlet UIButton *takeButton;
 @property (weak, nonatomic) IBOutlet UIImageView *captureView;
-
-@property (weak, nonatomic) id<AVCapturePhotoCaptureDelegate> delegate;
 
 @end
